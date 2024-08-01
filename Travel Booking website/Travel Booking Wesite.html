@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+        }
+        .profile {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        .profile img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-section select, .form-section input, .form-section button {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-section button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+        .seat-selection, .payment-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .seat-selection label, .payment-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .seat-selection select, .payment-section input, .payment-section button {
+            width: 50%;
+        }
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .payment-methods label {
+            margin-bottom: 5px;
+        }
+        .payment-methods input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Explorer</h1>
+        <div class="profile">
+            <img src="C:\Users\lenovo\Downloads\HTML Sample Projects\Travel Booking website\Person Icon.jpg" alt="User Profile">
+            <span>Mahesh01</span>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Rewaeds & Cupons</a>
+        <a href="#">Booking</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <section class="form-section">
+            <h2>Plan Your Trip</h2>
+            <form id="bookingForm">
+                <label for="state">From :</label>
+                <select id="state" name="state">
+                    <option value="">Select</option>
+                    <option value="Andhra pradesh">Andhra Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Mysoor">Mysoor</option>
+                </select>
+                <label for="state">To :</label>
+                <select id="state" name="state">
+                    <option value="">Select</option>
+                    <option value="Andhra pradesh">Andhra Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Mysoor">Mysoor</option>
+                </select>
+
+                <label for="Gender">Gender:</label>
+                <select id="Gender" name="Gender">
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>    
+                
+                <label for="username">Passenger Name:</label>
+                <input type="text" id="username" name="username" placeholder="Enter passenger name">
+                
+                <label for="date">Date Of your Journey:</label>
+                <input type="date" id="date" name="date">
+
+                <label for="Transport Type">Transport Type:</label>
+                <select id="Transport Type" name="Transport Type">
+                    <option value="">Select</option>
+                    <option value="Bus">Bus</option>
+                    <option value="Train">Train</option>
+                    <option value="Flight">Flight</option>
+                </select>  
+                
+                <button type="button" onclick="showSeats()">Search and Book</button>
+            </form>
+        </section>
+        <section class="seat-selection" id="seatSelection">
+            <h2>Select Your Seats</h2>
+            <label for="seats">Choose number of seats:</label>
+            <select id="seats" name="seats">
+                <option value="1">1 Seat</option>
+                <option value="2">2 Seats</option>
+                <option value="3">3 Seats</option>
+                <option value="4">4 Seats</option>
+            </select>
+            <button type="button" onclick="showPayment()">Confirm Booking</button>
+        </section>
+        <section class="payment-section" id="paymentSection">
+            <h2>Payment Details</h2>
+            <label for="paymentMethod">Choose Payment Method:</label>
+            <div class="payment-methods">
+                <label>
+                    <input type="radio" name="paymentMethod" value="credit/Debit Card"> Credit/Debit Card 
+                    <img src="C:\Users\lenovo\Downloads\HTML Sample Projects\Travel Booking website\Card.webp" width="30px" height="20px" alt="Card">
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="paypal"> PayPal
+                    <img src="C:\Users\lenovo\Downloads\HTML Sample Projects\Travel Booking website\PayPal Card.png" width="30px" height="20px" alt="PayPal">
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="UPI id"> UPI id
+                    <img src="C:\Users\lenovo\Downloads\HTML Sample Projects\Travel Booking website/UPI id.webp" width="30px" height="20px" alt="UPI id">
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Net Banking"> Net Banking
+                    <img src="C:\Users\lenovo\Downloads\HTML Sample Projects\Travel Booking website\Net Banking.jpg" width="30px" height="20px" alt="Net Banking">
+                </label>
+            </div>
+            <button type="button">Make Payment</button>
+        </section>
+    </div>
+
+    <script>
+        function showSeats() {
+            document.querySelector('.seat-selection').style.display = 'block';
+        }
+        
+        function showPayment() {
+            document.querySelector('.payment-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+
